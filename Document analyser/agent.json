@@ -1,0 +1,206 @@
+{
+  "version": "1.1.0",
+  "settings": {
+    "model": "gpt-5.4-2026-03-05-community-agents",
+    "maxTokens": 16384,
+    "temperature": 0,
+    "engine": "basic-v2",
+    "maxIterations": 100,
+    "mode": "standard"
+  },
+  "inputSchema": {
+    "type": "object",
+    "required": [
+      "document"
+    ],
+    "properties": {
+      "document": {
+        "$ref": "#/definitions/job-attachment"
+      }
+    },
+    "definitions": {
+      "job-attachment": {
+        "type": "object",
+        "required": [
+          "ID"
+        ],
+        "x-uipath-resource-kind": "JobAttachment",
+        "properties": {
+          "ID": {
+            "type": "string",
+            "description": "Orchestrator attachment key"
+          },
+          "FullName": {
+            "type": "string",
+            "description": "File name"
+          },
+          "MimeType": {
+            "type": "string",
+            "description": "The MIME type of the content, such as \"application/json\" or \"image/png\""
+          },
+          "Metadata": {
+            "type": "object",
+            "description": "Dictionary<string, string> of metadata",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "outputSchema": {
+    "type": "object",
+    "required": [
+      "documentType",
+      "qualityAssessment",
+      "extractedInformation",
+      "uncertaintyNotes"
+    ],
+    "properties": {
+      "documentType": {
+        "type": "object",
+        "required": [
+          "identifiedType",
+          "confidenceLevel",
+          "keyFeatures"
+        ],
+        "properties": {
+          "identifiedType": {
+            "type": "string",
+            "description": "Specified document type"
+          },
+          "confidenceLevel": {
+            "type": "string",
+            "description": "Confidence level of the identification",
+            "enum": [
+              "High",
+              "Medium",
+              "Low"
+            ]
+          },
+          "keyFeatures": {
+            "type": "array",
+            "description": "List of 2-3 main features that led to this identification",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "qualityAssessment": {
+        "type": "object",
+        "required": [
+          "overallQuality",
+          "detectedIssues",
+          "obstructionStatus"
+        ],
+        "properties": {
+          "overallQuality": {
+            "type": "string",
+            "description": "Overall quality assessment of the document",
+            "enum": [
+              "Excellent",
+              "Good",
+              "Fair",
+              "Poor"
+            ]
+          },
+          "detectedIssues": {
+            "type": "array",
+            "description": "List of all quality issues found, including any instances of obstructions",
+            "items": {
+              "type": "object",
+              "required": [
+                "issue",
+                "severity"
+              ],
+              "properties": {
+                "issue": {
+                  "type": "string",
+                  "description": "Description of the detected issue"
+                },
+                "severity": {
+                  "type": "string",
+                  "description": "Severity of the issue",
+                  "enum": [
+                    "High",
+                    "Medium",
+                    "Low"
+                  ]
+                }
+              }
+            }
+          },
+          "obstructionStatus": {
+            "type": "string",
+            "description": "Status based on presence of obstructions",
+            "enum": [
+              "Accepted",
+              "Rejected"
+            ]
+          }
+        }
+      },
+      "extractedInformation": {
+        "type": "object",
+        "required": [
+          "rollNumberOrUniversityID",
+          "name"
+        ],
+        "properties": {
+          "rollNumberOrUniversityID": {
+            "type": "string",
+            "description": "Extracted roll number or university ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Extracted name"
+          }
+        }
+      },
+      "uncertaintyNotes": {
+        "type": "string",
+        "description": "Any uncertainty about aspects of the analysis, with explanations"
+      }
+    }
+  },
+  "metadata": {
+    "storageVersion": "50.0.0",
+    "isConversational": false,
+    "targetRuntime": "pythonAgent",
+    "showProjectCreationExperience": false
+  },
+  "type": "lowCode",
+  "projectId": "bcf6a43a-c7e4-4ce7-bbe0-917bd449c6cc",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an AI assistant specialized in document analysis. Your primary functions are:\n\n1. Identifying document types (e.g., University_ID, Transcript, etc.)\n2. Detecting quality errors in documents (e.g., Blurry, Low Resolution, Missing Signature)\n3. Identifying obstructions in documents (e.g., thumb covering text)\n4. Extracting specific information: roll number/university ID and name\n\nApproach each analysis task methodically:\n1. Carefully examine the provided document.\n2. Identify the document type if possible.\n3. Assess the document quality, looking for any errors or issues.\n4. Check for any obstructions that may hinder readability.\n   - If any obstructions are found that significantly hinder readability, mark the document as 'rejected'.\n   - If no significant obstructions are found, mark the document as 'accepted'.\n5. Extract the roll number/university ID and name if present.\n6. Provide a detailed report of your findings.\n\nWhen handling uncertainty:\n- Clearly state which aspects of the analysis you are unsure about.\n- Explain the reasons for your uncertainty (e.g., poor image quality, unfamiliar document type).\n- Offer alternative possibilities if you can't make a definitive determination.\n- Suggest additional information or better quality images that could help resolve the uncertainty.\n\nMaintain objectivity:\n- Base your analysis solely on observable facts within the document.\n- Avoid making assumptions about the document's purpose or the individual it pertains to.\n- Use neutral language in your assessments, focusing on describing what you observe rather than interpreting intentions.\n\nYour goal is to provide accurate, helpful, and objective information to assist in document processing and verification. Your analysis should be thorough enough to be relied upon for important decision-making processes while acknowledging any limitations in the assessment.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "You are an AI assistant specialized in document analysis. Your primary functions are:\n\n1. Identifying document types (e.g., University_ID, Transcript, etc.)\n2. Detecting quality errors in documents (e.g., Blurry, Low Resolution, Missing Signature)\n3. Identifying obstructions in documents (e.g., thumb covering text)\n4. Extracting specific information: roll number/university ID and name\n\nApproach each analysis task methodically:\n1. Carefully examine the provided document.\n2. Identify the document type if possible.\n3. Assess the document quality, looking for any errors or issues.\n4. Check for any obstructions that may hinder readability.\n   - If any obstructions are found that significantly hinder readability, mark the document as 'rejected'.\n   - If no significant obstructions are found, mark the document as 'accepted'.\n5. Extract the roll number/university ID and name if present.\n6. Provide a detailed report of your findings.\n\nWhen handling uncertainty:\n- Clearly state which aspects of the analysis you are unsure about.\n- Explain the reasons for your uncertainty (e.g., poor image quality, unfamiliar document type).\n- Offer alternative possibilities if you can't make a definitive determination.\n- Suggest additional information or better quality images that could help resolve the uncertainty.\n\nMaintain objectivity:\n- Base your analysis solely on observable facts within the document.\n- Avoid making assumptions about the document's purpose or the individual it pertains to.\n- Use neutral language in your assessments, focusing on describing what you observe rather than interpreting intentions.\n\nYour goal is to provide accurate, helpful, and objective information to assist in document processing and verification. Your analysis should be thorough enough to be relied upon for important decision-making processes while acknowledging any limitations in the assessment."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "Analyze the attached document with the following details:\n\nDocument: {{input.document}}\n\nPlease provide the following information in a structured format:\n\n1. Document Type:\n   - Identified type: [Specify the document type]\n   - Confidence level: [High/Medium/Low]\n   - Key identifying features: [List 2-3 main features that led to this identification]\n\n2. Quality Assessment:\n   - Overall quality: [Excellent/Good/Fair/Poor]\n   - Detected issues: [List all quality issues found, including any instances of thumbs covering text]\n   - Severity of each issue: [High/Medium/Low]\n   - Obstruction status: [Accepted/Rejected]\n\n3. Extracted Information:\n   - Roll number/University ID: [Provide the extracted ID]\n   - Name: [Provide the extracted name]\n\nIf you're uncertain about any aspect of your analysis, clearly state this and explain why.\n\nPresent your findings in the structured format above, ensuring a professional and objective tone throughout your assessment.",
+      "contentTokens": [
+        {
+          "type": "simpleText",
+          "rawString": "Analyze the attached document with the following details:\n\nDocument: "
+        },
+        {
+          "type": "variable",
+          "rawString": "input.document"
+        },
+        {
+          "type": "simpleText",
+          "rawString": "\n\nPlease provide the following information in a structured format:\n\n1. Document Type:\n   - Identified type: [Specify the document type]\n   - Confidence level: [High/Medium/Low]\n   - Key identifying features: [List 2-3 main features that led to this identification]\n\n2. Quality Assessment:\n   - Overall quality: [Excellent/Good/Fair/Poor]\n   - Detected issues: [List all quality issues found, including any instances of thumbs covering text]\n   - Severity of each issue: [High/Medium/Low]\n   - Obstruction status: [Accepted/Rejected]\n\n3. Extracted Information:\n   - Roll number/University ID: [Provide the extracted ID]\n   - Name: [Provide the extracted name]\n\nIf you're uncertain about any aspect of your analysis, clearly state this and explain why.\n\nPresent your findings in the structured format above, ensuring a professional and objective tone throughout your assessment."
+        }
+      ]
+    }
+  ]
+}

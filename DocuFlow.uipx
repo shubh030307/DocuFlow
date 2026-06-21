@@ -1,0 +1,18 @@
+{
+  "DocVersion": "1.0.0",
+  "StudioMinVersion": "2025.04.0",
+  "SolutionId": "f2caa6b4-650d-419e-933b-08de3994fb4f",
+  "Projects": [
+    {
+      "Type": "Process",
+      "ProjectRelativePath": "The Blurry Paperwork Nightmare/project.uiproj",
+      "Id": "91529a47-aaef-4a50-bf40-fc8534d5d842"
+    },
+    {
+      "Type": "Agent",
+      "ProjectRelativePath": "Document analyser/project.uiproj",
+      "Id": "2721850a-66b1-4b35-992b-6913c9c4d9d0"
+    }
+  ],
+  "AutomationHubIdeaUrl": null
+}

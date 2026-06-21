@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:uasj="clr-namespace:UiPath.Activities.System.Jobs;assembly=UiPath.System.Activities" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugae="clr-namespace:UiPath.GSuite.Activities.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugage="clr-namespace:UiPath.GSuite.Activities.Gmail.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugagf="clr-namespace:UiPath.GSuite.Activities.Gmail.Filters;assembly=UiPath.GSuite.Activities" xmlns:ugagm="clr-namespace:UiPath.GSuite.Activities.Gmail.Models;assembly=UiPath.GSuite.Activities" xmlns:ugam="clr-namespace:UiPath.GSuite.Activities.Models;assembly=UiPath.GSuite.Activities" xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:uggm="clr-namespace:UiPath.GSuite.Gmail.Models;assembly=UiPath.GSuite" xmlns:ugm="clr-namespace:UiPath.GSuite.Models;assembly=UiPath.GSuite" xmlns:ugsc="clr-namespace:UiPath.GSuite.Sheets.Contracts;assembly=UiPath.GSuite" xmlns:ugsmc="clr-namespace:UiPath.GSuite.Sheets.Models.Columns;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upad="clr-namespace:UiPath.Platform.Activities.DataMapping;assembly=UiPath.Platform" xmlns:upd="clr-namespace:UiPath.Platform.DataMapping;assembly=UiPath.Platform" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:usavsdb="clr-namespace:UiPath.System.Activities.ViewModels.SWEntities.Document_analyser_Input.Bundle;assembly=Document_analyser_In.7wTJn2Gu9ZL1z2ZJI2OvLKg1" xmlns:usavsdb1="clr-namespace:UiPath.System.Activities.ViewModels.SWEntities.Document_analyser_Output.Bundle;assembly=Document_analyser_Ou.g9yK341lSoP1cJOCm1DrE4S1" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="61">
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>System</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.GSuite.Activities.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.GSuite.Sheets.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Filters</x:String>
+      <x:String>UiPath.GSuite.Gmail.Enums</x:String>
+      <x:String>UiPath.GSuite.Models</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Shared.Api.Google.Gmail.Models</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.GSuite.Activities.Utilities</x:String>
+      <x:String>UiPath.Productivity.Activities.Diagnostics</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Triggers</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Activities.System.Jobs</x:String>
+      <x:String>Microsoft.Rest</x:String>
+      <x:String>UiPath.Orchestrator.Client.Models</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
+      <x:String>UiPath.ConnectionClient.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.ExtractPDFImages</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF</x:String>
+      <x:String>UiPath.GSuite.Gmail.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models.FilterBuilder</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>UiPath.Shared.Api.Google.Gmail.Contracts</x:String>
+      <x:String>UiPath.System.Activities.ViewModels.SWEntities.Document_analyser_Input.Bundle</x:String>
+      <x:String>UiPath.System.Activities.ViewModels.SWEntities.Document_analyser_Output.Bundle</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Document_analyser_Ou.g9yK341lSoP1cJOCm1DrE4S1</AssemblyReference>
+      <AssemblyReference>Document_analyser_In.7wTJn2Gu9ZL1z2ZJI2OvLKg1</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>Microsoft.Rest.ClientRuntime</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+      <AssemblyReference>UiPath.OrchestratorClient</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>ConnectionClient</AssemblyReference>
+      <AssemblyReference>System.Runtime</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Reflection</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>FSharp.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="356,732" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="uggm:GmailAttachmentLocalItem[]" Default="[new UiPath.GSuite.Gmail.Models.GmailAttachmentLocalItem() {  }]" Name="attachments">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">DownloadAttachmentsConnections_1</x:String>
+            <x:String x:Key="SourcePropertyName">NewResult</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="ugdm:GDriveRemoteItem" Name="firstFile">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">UploadFilesConnections_1</x:String>
+            <x:String x:Key="SourcePropertyName">FirstResult</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="Student_Name" />
+      <Variable x:TypeArguments="usavsdb1:Document_analyser_Output" Default="[new UiPath.System.Activities.ViewModels.SWEntities.Document_analyser_Output.Bundle.Document_analyser_Output]" Name="outputArguments">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">RunJob_4</x:String>
+            <x:String x:Key="SourcePropertyName">Output</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="[Nothing]" Name="Eligibily" />
+      <Variable x:TypeArguments="ugdm:GDriveRemoteItem[]" Default="[new UiPath.GSuite.Drive.Models.GDriveRemoteItem() {  }]" Name="files">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">UploadFilesConnections_1</x:String>
+            <x:String x:Key="SourcePropertyName">AllResults</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="uploadedFileId" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manual Trigger" sap2010:WorkflowViewState.IdRef="ManualTrigger_1" />
+    <uga:ForEachEmailConnections ConnectionAccountName="{x:Null}" CurrentIndex="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID2}" Length="{x:Null}" ManualEntryFolder="{x:Null}" QueryFilter="{x:Null}" AllLabels="W3siSWQiOiJDSEFUIiwiTmFtZSI6IkNIQVQiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IlNFTlQiLCJOYW1lIjoiU0VOVCIsIlR5cGUiOiJzeXN0ZW0ifSx7IklkIjoiSU5CT1giLCJOYW1lIjoiSU5CT1giLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IklNUE9SVEFOVCIsIk5hbWUiOiJJTVBPUlRBTlQiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IlRSQVNIIiwiTmFtZSI6IlRSQVNIIiwiVHlwZSI6InN5c3RlbSJ9LHsiSWQiOiJEUkFGVCIsIk5hbWUiOiJEUkFGVCIsIlR5cGUiOiJzeXN0ZW0ifSx7IklkIjoiU1BBTSIsIk5hbWUiOiJTUEFNIiwiVHlwZSI6InN5c3RlbSJ9LHsiSWQiOiJDQVRFR09SWV9GT1JVTVMiLCJOYW1lIjoiQ0FURUdPUllfRk9SVU1TIiwiVHlwZSI6InN5c3RlbSJ9LHsiSWQiOiJDQVRFR09SWV9VUERBVEVTIiwiTmFtZSI6IkNBVEVHT1JZX1VQREFURVMiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IkNBVEVHT1JZX1BFUlNPTkFMIiwiTmFtZSI6IkNBVEVHT1JZX1BFUlNPTkFMIiwiVHlwZSI6InN5c3RlbSJ9LHsiSWQiOiJDQVRFR09SWV9QUk9NT1RJT05TIiwiTmFtZSI6IkNBVEVHT1JZX1BST01PVElPTlMiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IkNBVEVHT1JZX1NPQ0lBTCIsIk5hbWUiOiJDQVRFR09SWV9TT0NJQUwiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IllFTExPV19TVEFSIiwiTmFtZSI6IllFTExPV19TVEFSIiwiVHlwZSI6InN5c3RlbSJ9LHsiSWQiOiJTVEFSUkVEIiwiTmFtZSI6IlNUQVJSRUQiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IlVOUkVBRCIsIk5hbWUiOiJVTlJFQUQiLCJUeXBlIjoic3lzdGVtIn0seyJJZCI6IkxhYmVsXzEiLCJOYW1lIjoiVW53YW50ZWQiLCJUeXBlIjoidXNlciJ9LHsiSWQiOiJMYWJlbF8yIiwiTmFtZSI6IltJbWFwXVwvRHJhZnRzIiwiVHlwZSI6InVzZXIifV0=" AuthScopesInvalid="False" BrowserFolder="Inbox" BrowserFolderLabelId="INBOX" ConnectionId="ebcae514-66a2-426c-8395-e28a72f59824" CurrentItemVariableName="CurrentEmail" DisplayName="For Each Email" FilterSelectionMode="ConditionBuilder" FolderInputSelectionMode="Browse" sap2010:WorkflowViewState.IdRef="ForEachEmailConnections_1" ImportantOnly="False" IncludeSubfolders="False" MarkAsRead="True" MaxResults="100" StarredOnly="False" UnreadOnly="True" UseConnectionService="True" WithAttachmentsOnly="True">
+      <uga:ForEachEmailConnections.Body>
+        <ActivityAction x:TypeArguments="ugm:GmailMessage, x:Int32">
+          <ActivityAction.Argument1>
+            <DelegateInArgument x:TypeArguments="ugm:GmailMessage" Name="CurrentEmail" />
+          </ActivityAction.Argument1>
+          <ActivityAction.Argument2>
+            <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentEmailIndex" />
+          </ActivityAction.Argument2>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <uga:DownloadAttachmentsConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DestinationPath="{x:Null}" Filter="{x:Null}" FilterByFileNames="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConflictResolution="Fail" ConnectionId="ebcae514-66a2-426c-8395-e28a72f59824" DisplayName="Download Email Attachments" Email="[CurrentEmail]" ExcludeInlineAttachments="False" sap2010:WorkflowViewState.IdRef="DownloadAttachmentsConnections_1" NewResult="[attachments]" SearchMode="UseSimple" UseConnectionService="True" />
+            <ui:ForEach x:TypeArguments="uggm:GmailAttachmentLocalItem" CurrentIndex="{x:Null}" sap:WorkflowViewStateService.ViewState="{x:Null}" DisplayName="For Each currentGmailAttachmentLocalItem" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[attachments]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="uggm:GmailAttachmentLocalItem">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="uggm:GmailAttachmentLocalItem" Name="currentGmailAttachmentLocalItem" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <uasj:RunJob ContinueOnError="False" DisplayName="Run Agent: Document analyser" sap2010:WorkflowViewState.IdRef="RunJob_4" ProcessName="Document analyser" TimeoutMS="600000">
+                      <uasj:RunJob.Arguments>
+                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      </uasj:RunJob.Arguments>
+                      <uasj:RunJob.Input>
+                        <InArgument x:TypeArguments="usavsdb:Document_analyser_Input">
+                          <upad:DataMappingPocoActivity x:TypeArguments="usavsdb:Document_analyser_Input" sap2010:WorkflowViewState.IdRef="DataMappingPocoActivity`1_1" ParentPath="">
+                            <upad:DataMappingPocoActivity.MappingInputs>
+                              <scg:List x:TypeArguments="upd:MappingInput" Capacity="4">
+                                <upd:MappingInput PropertyName="document" PropertyType="upr:IResource">
+                                  <upd:MappingInput.Value>
+                                    <InArgument x:TypeArguments="upr:IResource">[attachments.FirstOrDefault]</InArgument>
+                                  </upd:MappingInput.Value>
+                                </upd:MappingInput>
+                              </scg:List>
+                            </upad:DataMappingPocoActivity.MappingInputs>
+                          </upad:DataMappingPocoActivity>
+                        </InArgument>
+                      </uasj:RunJob.Input>
+                      <uasj:RunJob.Output>
+                        <OutArgument x:TypeArguments="usavsdb1:Document_analyser_Output">[outputArguments]</OutArgument>
+                      </uasj:RunJob.Output>
+                    </uasj:RunJob>
+                    <Assign DisplayName="Assign Variable Value for student" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Student_Name]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[string.Format("{0}", outputArguments.extractedInformation.name)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[string.Format(&quot;{0}&quot;, outputArguments.qualityAssessment.obstructionStatus)]" />
+                    <If Condition="[outputArguments.qualityAssessment.obstructionStatus = &quot;Accepted&quot;]" DisplayName="If" sap2010:WorkflowViewState.IdRef="If_1">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <uga:UploadFilesConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DestinationFolder="{x:Null}" FilesList="{x:Null}" FolderIdBackup="{x:Reference __ReferenceID0}" ManualFolderId="{x:Null}" OverwriteExistingFile="{x:Null}" SingleFileToUpload="{x:Null}" AllResults="[files]" AuthScopesInvalid="False" BrowseFolderId="https://drive.google.com/drive/folders/1yyVc0c-VA9oLQpKSxNNVO4TuhzytpLi2" ConflictResolution="AddSeparate" ConnectionId="d0a7b88c-63dd-4744-8900-9c44cca9055a" Convert="False" DisplayName="Upload Files" FilesInputMode="MultipleByVariable" FirstResult="[firstFile]" FolderInputMode="Browse" sap2010:WorkflowViewState.IdRef="UploadFilesConnections_1" MultipleFilesToUpload="[attachments]" SaveToFolderName="Student document" UseConnectionService="True">
+                            <uga:UploadFilesConnections.FilesBackup>
+                              <usau:BackupSlot x:TypeArguments="ugade:FilesInputMode" StoredValue="MultipleByVariable">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugade:FilesInputMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:UploadFilesConnections.FilesBackup>
+                            <uga:UploadFilesConnections.Folder>
+                              <ugam:DriveItemArgument ConnectionDescriptor="{x:Null}" DriveId="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://drive.google.com/drive/folders/1yyVc0c-VA9oLQpKSxNNVO4TuhzytpLi2" ConnectionKey="d0a7b88c-63dd-4744-8900-9c44cca9055a" FriendlyName="Student document" FullPathHint="My Drive/Student document" InputMode="Browse">
+                                <ugam:DriveItemArgument.Backup>
+                                  <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                                    <usau:BackupSlot.BackupValues>
+                                      <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                                    </usau:BackupSlot.BackupValues>
+                                  </usau:BackupSlot>
+                                </ugam:DriveItemArgument.Backup>
+                                <ugam:DriveItemArgument.ParentIdFullPathHint>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </ugam:DriveItemArgument.ParentIdFullPathHint>
+                              </ugam:DriveItemArgument>
+                            </uga:UploadFilesConnections.Folder>
+                          </uga:UploadFilesConnections>
+                          <Assign DisplayName="Assign Variable Value for gmail link" sap2010:WorkflowViewState.IdRef="Assign_2">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[uploadedFileId]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">["=HYPERLINK(""https://drive.google.com/file/d/" &amp; firstFile.Id &amp; "/view"",""View Document"")"
+]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <uga:WriteRowConnections ArrayRow="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" DataRow="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Admission_final_detail" BrowserItemId="https://docs.google.com/spreadsheets/d/1HEUNexMKC884pKY0T0ooZkffZkP9vZPpZMxdfPZTVsE/edit?usp=drivesdk" ConnectionId="9bcbb4f5-91c0-4cc6-a544-bd199ac22956" DataType="IndividualFields" DisplayName="Write Row" HasHeaders="True" sap2010:WorkflowViewState.IdRef="WriteRowConnections_4" ItemSelectionMode="Browse" Range="Sheet1" RowPosition="0" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Append">
+                            <uga:WriteRowConnections.AllFields>
+                              <x:Array Type="ugsc:IRangeField">
+                                <ugsmc:RangeColumn DisplayName="Column 1" Guid="716b9d95-86be-4e8d-b395-d710fed88375" Name="Column 1">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 2" Guid="ca376bf4-5342-4e8d-afca-c58d8fac1711" Name="Column 2">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 3" Guid="4d9a9be5-2e9c-43b9-a756-0cf657d8d32f" Name="Column 3">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 4" Guid="42722697-0cb1-405b-9de8-7bf6748f401b" Name="Column 4">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 5" Guid="ae768898-5a0d-4292-bf58-80c06f361d4d" Name="Column 5">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 6" Guid="d22598e1-66d0-42e6-afa3-9b98e3b05d6a" Name="Column 6">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 7" Guid="f093be4f-8d7b-469f-bb0c-1faa375c1f79" Name="Column 7">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 8" Guid="76203243-6723-4da2-b5c7-06ead2ca6597" Name="Column 8">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 9" Guid="b36f4ec0-cbc6-4777-98a6-bafe84c60758" Name="Column 9">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 10" Guid="fb4470ff-04d7-4c31-97a1-0b05007a1fbf" Name="Column 10">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 11" Guid="f0996a1f-5e6b-4cdd-8916-318545fc39d6" Name="Column 11">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 12" Guid="94eef410-3d36-42bc-b9dd-98579e717384" Name="Column 12">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 13" Guid="38021d95-1c04-4c6b-a716-15e28b67449f" Name="Column 13">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 14" Guid="d29b6491-9a4a-49e9-8765-eb62e6adc3c0" Name="Column 14">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 15" Guid="65cea5a7-49aa-4426-9548-9e6fb39aabd3" Name="Column 15">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 16" Guid="462312e2-5c69-4871-8b6e-416fcb119e52" Name="Column 16">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 17" Guid="3c580cb3-f1e8-4818-a528-4296c54937af" Name="Column 17">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 18" Guid="3b88cbe1-c524-4117-805e-0b5b1d0701df" Name="Column 18">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 19" Guid="7b011481-8209-4843-bb2c-c7c10ecc3973" Name="Column 19">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 20" Guid="47aaba6d-698d-43a1-91b2-3dd98ce2fb8f" Name="Column 20">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 21" Guid="3b448d99-66ef-488b-873c-f28b74c6332f" Name="Column 21">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 22" Guid="d2b36284-8c3a-4034-b580-70a33eebaf22" Name="Column 22">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 23" Guid="ccf43c5b-b7e0-4b20-9e33-eba6d071dbe5" Name="Column 23">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 24" Guid="0c08f53c-30f9-4c5b-ac57-db790340d90b" Name="Column 24">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 25" Guid="040caf59-18d2-4e5a-aafc-b6e7a13632a1" Name="Column 25">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                                <ugsmc:RangeColumn DisplayName="Column 26" Guid="00afca31-7a23-4873-961b-1bcd7b5a448a" Name="Column 26">
+                                  <ugsmc:RangeColumn.Sample>
+                                    <ugsmc:CellDetail Type="Object" TypeFormat="General" Value="Sample" />
+                                  </ugsmc:RangeColumn.Sample>
+                                </ugsmc:RangeColumn>
+                              </x:Array>
+                            </uga:WriteRowConnections.AllFields>
+                            <uga:WriteRowConnections.FileIdBackup>
+                              <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" x:Name="__ReferenceID1" StoredValue="Browse">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:WriteRowConnections.FileIdBackup>
+                            <uga:WriteRowConnections.InputDataTypeBackup>
+                              <usau:BackupSlot x:TypeArguments="ugase:InputDataType" StoredValue="IndividualFields">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:List x:TypeArguments="x:Object" x:Key="DataRow" Capacity="4">
+                                    <x:Null />
+                                  </scg:List>
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:WriteRowConnections.InputDataTypeBackup>
+                            <uga:WriteRowConnections.Item>
+                              <ugam:DriveItemArgument Backup="{x:Reference __ReferenceID1}" ConnectionDescriptor="{x:Null}" DriveId="{x:Null}" Existing="{x:Null}" FullPath="{x:Null}" IdOrUrl="{x:Null}" ParentId="{x:Null}" ParentIdFriendlyName="{x:Null}" RelativePath="{x:Null}" BrowserId="https://docs.google.com/spreadsheets/d/1HEUNexMKC884pKY0T0ooZkffZkP9vZPpZMxdfPZTVsE/edit?usp=drivesdk" ConnectionKey="9bcbb4f5-91c0-4cc6-a544-bd199ac22956" FriendlyName="Admission_final_detail" FullPathHint="My Drive/Admission_final_detail" InputMode="Browse">
+                                <ugam:DriveItemArgument.ParentIdFullPathHint>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </ugam:DriveItemArgument.ParentIdFullPathHint>
+                              </ugam:DriveItemArgument>
+                            </uga:WriteRowConnections.Item>
+                            <uga:WriteRowConnections.RangeWriteModeBackup>
+                              <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Append">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugase:RangeWriteMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:WriteRowConnections.RangeWriteModeBackup>
+                            <uga:WriteRowConnections.State>
+                              <uga:ActivityState>
+                                <uga:ActivityState.SelectedFields>
+                                  <scg:List x:TypeArguments="uga:DynamicField" Capacity="4">
+                                    <uga:DynamicField Id="bf8e13f0-1dfa-4ca9-990a-e99c0caba22a" Name="dynamicField_AddRangeProperty_20">
+                                      <uga:DynamicField.ArgumentValue>
+                                        <InArgument x:TypeArguments="x:Object">[string.Format("{0}", Student_Name)]</InArgument>
+                                      </uga:DynamicField.ArgumentValue>
+                                    </uga:DynamicField>
+                                    <uga:DynamicField Id="d2fbc265-9399-4e9a-b0b6-044b1a48270d" Name="dynamicField_AddRangeProperty_21">
+                                      <uga:DynamicField.ArgumentValue>
+                                        <InArgument x:TypeArguments="x:Object">[string.Format("{0}", outputArguments.extractedInformation.rollNumberOrUniversityID)]</InArgument>
+                                      </uga:DynamicField.ArgumentValue>
+                                    </uga:DynamicField>
+                                    <uga:DynamicField Id="00b32601-4994-4734-892b-a8b3fcd1a079" Name="dynamicField_AddRangeProperty_22">
+                                      <uga:DynamicField.ArgumentValue>
+                                        <InArgument x:TypeArguments="x:Object">[string.Format("{0}", uploadedFileId)]</InArgument>
+                                      </uga:DynamicField.ArgumentValue>
+                                    </uga:DynamicField>
+                                  </scg:List>
+                                </uga:ActivityState.SelectedFields>
+                              </uga:ActivityState>
+                            </uga:WriteRowConnections.State>
+                          </uga:WriteRowConnections>
+                          <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[String.Format(&quot;&#xA;&lt;p&gt;Dear {0},&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;Roll Number:&lt;/b&gt; {1}&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Thank you for submitting your documents to the University Admissions Office.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;We are pleased to inform you that the documents you provided have been successfully reviewed and meet all our quality and submission requirements.&lt;/b&gt; &#xA;Your ID card and academic transcripts are clear, complete, and have been accepted for further processing.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;Your application will now move forward to the next stage of evaluation.&lt;/b&gt;&lt;br&gt;&#xA;&lt;b&gt;No further action is required from your side at this time.&lt;/b&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;If any additional information is needed, we will contact you via email.&lt;/b&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;We appreciate your cooperation and wish you all the best.&lt;/p&gt;&#xA;&#xA;&lt;br&gt;&#xA;&#xA;&lt;p&gt;Warm regards,&lt;br&gt;&#xA;&lt;b&gt;Admissions Office&lt;/b&gt;&lt;/p&gt;&#xA;&quot;,Student_Name, outputArguments.extractedInformation.rollNumberOrUniversityID)&#xA;]" ConnectionId="ebcae514-66a2-426c-8395-e28a72f59824" DisplayName="Send Email 1" sap2010:WorkflowViewState.IdRef="SendEmailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Your Document Submission - ACCEPTED" To="[New String(){CurrentEmail.FromAddress}]" UseConnectionService="True">
+                            <uga:SendEmailConnections.Attachments>
+                              <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+                            </uga:SendEmailConnections.Attachments>
+                            <uga:SendEmailConnections.AttachmentsBackup>
+                              <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:SendEmailConnections.AttachmentsBackup>
+                            <uga:SendEmailConnections.InputTypeBackup>
+                              <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:SendEmailConnections.InputTypeBackup>
+                          </uga:SendEmailConnections>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[String.Format(&quot;&#xA;&lt;p&gt;Dear Student,&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Thank you for submitting your documents to the University Admissions Office.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;After careful review, we regret to inform you that your submitted documents do not meet the required criteria.&lt;/b&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;Issue Identified:&lt;/b&gt; {0}&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Due to the issue mentioned above, your documents cannot be accepted for further processing at this time.&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;b&gt;Please review the submission guidelines and re-submit the corrected documents, if applicable.&lt;/b&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;If you require any clarification, you may contact the Admissions Office via email.&lt;/p&gt;&#xA;&#xA;&lt;br&gt;&#xA;&#xA;&lt;p&gt;Warm regards,&lt;br&gt;&#xA;&lt;b&gt;Admissions Office&lt;/b&gt;&lt;/p&gt;&#xA;&quot;, outputArguments.qualityAssessment.overallQuality)&#xA;]" ConnectionId="ebcae514-66a2-426c-8395-e28a72f59824" DisplayName="Send Email" sap2010:WorkflowViewState.IdRef="SendEmailConnections_1" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="Your Document Submission - Please Resend (Quality Issues)" To="[New String(){CurrentEmail.FromAddress}]" UseConnectionService="True">
+                            <uga:SendEmailConnections.Attachments>
+                              <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+                            </uga:SendEmailConnections.Attachments>
+                            <uga:SendEmailConnections.AttachmentsBackup>
+                              <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:SendEmailConnections.AttachmentsBackup>
+                            <uga:SendEmailConnections.InputTypeBackup>
+                              <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:SendEmailConnections.InputTypeBackup>
+                          </uga:SendEmailConnections>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uga:ForEachEmailConnections.Body>
+      <uga:ForEachEmailConnections.Filter>
+        <ugagf:MailFilterCollection LogicalOperator="Or">
+          <ugagf:MailFilterCollection.Filters>
+            <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="Application Submission" />
+            <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="Application " />
+            <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="application submission" />
+            <ugagf:MailFilterElement DateEqualsFilter="{x:Null}" Values="{x:Null}" CollectionFilterOperator="In" Criteria="Subject" DateOperator="NewerThan" StringOperator="Contains" Value="application" />
+          </ugagf:MailFilterCollection.Filters>
+        </ugagf:MailFilterCollection>
+      </uga:ForEachEmailConnections.Filter>
+      <uga:ForEachEmailConnections.FilterSelectionBackup>
+        <usau:BackupSlot x:TypeArguments="ugae:FilterMode" StoredValue="ConditionBuilder">
+          <usau:BackupSlot.BackupValues>
+            <scg:Dictionary x:TypeArguments="ugae:FilterMode, scg:List(x:Object)" />
+          </usau:BackupSlot.BackupValues>
+        </usau:BackupSlot>
+      </uga:ForEachEmailConnections.FilterSelectionBackup>
+      <uga:ForEachEmailConnections.Folder>
+        <ugagm:FolderArgument ConnectionDescriptor="{x:Null}" ManualEntryFolderName="{x:Null}" BrowserFolderId="INBOX" BrowserFolderName="Inbox" ConnectionKey="ebcae514-66a2-426c-8395-e28a72f59824" InputMode="Browse">
+          <ugagm:FolderArgument.Backup>
+            <usau:BackupSlot x:TypeArguments="ugage:FolderInputMode" x:Name="__ReferenceID2" StoredValue="Browse">
+              <usau:BackupSlot.BackupValues>
+                <scg:Dictionary x:TypeArguments="ugage:FolderInputMode, scg:List(x:Object)" />
+              </usau:BackupSlot.BackupValues>
+            </usau:BackupSlot>
+          </ugagm:FolderArgument.Backup>
+        </ugagm:FolderArgument>
+      </uga:ForEachEmailConnections.Folder>
+    </uga:ForEachEmailConnections>
+  </Sequence>
+</Activity>

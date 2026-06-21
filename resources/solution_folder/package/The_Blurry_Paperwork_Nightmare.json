@@ -1,0 +1,26 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "The Blurry Paperwork Nightmare",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "91529a47-aaef-4a50-bf40-fc8534d5d842",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "files": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "fileName": null,
+      "fileReference": null,
+      "name": "The Blurry Paperwork Nightmare",
+      "description": null
+    },
+    "locks": [],
+    "key": "d035ecc6-4728-4092-a1d8-414469c3f1df"
+  }
+}

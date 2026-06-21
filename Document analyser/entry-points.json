@@ -1,0 +1,169 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/agent.json",
+      "type": "agent",
+      "uniqueId": "160e5742-329c-4d46-b2bd-c32e32bd2766",
+      "input": {
+        "type": "object",
+        "required": [
+          "document"
+        ],
+        "properties": {
+          "document": {
+            "$ref": "#/definitions/job-attachment"
+          }
+        },
+        "definitions": {
+          "job-attachment": {
+            "type": "object",
+            "required": [
+              "ID"
+            ],
+            "x-uipath-resource-kind": "JobAttachment",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "Orchestrator attachment key"
+              },
+              "FullName": {
+                "type": "string",
+                "description": "File name"
+              },
+              "MimeType": {
+                "type": "string",
+                "description": "The MIME type of the content, such as \"application/json\" or \"image/png\""
+              },
+              "Metadata": {
+                "type": "object",
+                "description": "Dictionary<string, string> of metadata",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "required": [
+          "documentType",
+          "qualityAssessment",
+          "extractedInformation",
+          "uncertaintyNotes"
+        ],
+        "properties": {
+          "documentType": {
+            "type": "object",
+            "required": [
+              "identifiedType",
+              "confidenceLevel",
+              "keyFeatures"
+            ],
+            "properties": {
+              "identifiedType": {
+                "type": "string",
+                "description": "Specified document type"
+              },
+              "confidenceLevel": {
+                "type": "string",
+                "description": "Confidence level of the identification",
+                "enum": [
+                  "High",
+                  "Medium",
+                  "Low"
+                ]
+              },
+              "keyFeatures": {
+                "type": "array",
+                "description": "List of 2-3 main features that led to this identification",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "qualityAssessment": {
+            "type": "object",
+            "required": [
+              "overallQuality",
+              "detectedIssues",
+              "obstructionStatus"
+            ],
+            "properties": {
+              "overallQuality": {
+                "type": "string",
+                "description": "Overall quality assessment of the document",
+                "enum": [
+                  "Excellent",
+                  "Good",
+                  "Fair",
+                  "Poor"
+                ]
+              },
+              "detectedIssues": {
+                "type": "array",
+                "description": "List of all quality issues found, including any instances of obstructions",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "issue",
+                    "severity"
+                  ],
+                  "properties": {
+                    "issue": {
+                      "type": "string",
+                      "description": "Description of the detected issue"
+                    },
+                    "severity": {
+                      "type": "string",
+                      "description": "Severity of the issue",
+                      "enum": [
+                        "High",
+                        "Medium",
+                        "Low"
+                      ]
+                    }
+                  }
+                }
+              },
+              "obstructionStatus": {
+                "type": "string",
+                "description": "Status based on presence of obstructions",
+                "enum": [
+                  "Accepted",
+                  "Rejected"
+                ]
+              }
+            }
+          },
+          "extractedInformation": {
+            "type": "object",
+            "required": [
+              "rollNumberOrUniversityID",
+              "name"
+            ],
+            "properties": {
+              "rollNumberOrUniversityID": {
+                "type": "string",
+                "description": "Extracted roll number or university ID"
+              },
+              "name": {
+                "type": "string",
+                "description": "Extracted name"
+              }
+            }
+          },
+          "uncertaintyNotes": {
+            "type": "string",
+            "description": "Any uncertainty about aspects of the analysis, with explanations"
+          }
+        },
+        "title": "Outputs"
+      }
+    }
+  ]
+}
